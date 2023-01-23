@@ -2,13 +2,13 @@
 
 namespace LolChampMvc.Models
 {
-    public partial class Personagem
+    public class Personagem
     {
         [JsonProperty("data")]
         //fazendo um dicionario de Datum
         public Dictionary<string, Datum> Data { get; set; }
     }
-    public partial class Datum
+    public class Datum
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -27,7 +27,7 @@ namespace LolChampMvc.Models
         [JsonProperty("tags")]
         public Tag[] Tags { get; set; }
     }
-    public partial class Image
+    public class Image
     {
         [JsonProperty("full")]
         public string Full { get; set; }
@@ -44,7 +44,7 @@ namespace LolChampMvc.Models
         [JsonProperty("h")]
         public long H { get; set; }
     }
-    public partial class Info
+    public class Info
     {
         [JsonProperty("attack")]
         public long Attack { get; set; }

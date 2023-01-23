@@ -15,9 +15,11 @@ namespace LolChampMvc.Controllers
             _httpClient.BaseAddress = new Uri(Endpoint);
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
- 
+            var itensByPage = 10;
+            var currentPage = page ?? 1;
+
             try
             {
                 var response = await _httpClient.GetAsync(Endpoint);
@@ -26,7 +28,7 @@ namespace LolChampMvc.Controllers
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     var personagem = JsonConvert.DeserializeObject<Personagem>(content);
-                    return View(personagem.Data.Values);
+                    return View(await personagem.Data.Values.ToPagedListAsync(currentPage, itensByPage));
                 }
                 else
                 {
@@ -41,6 +43,29 @@ namespace LolChampMvc.Controllers
             }
 
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(string id)
+        {
+            var response = await _httpClient.GetAsync(Endpoint);
+            try
+            {
+                string content = await response.Content.ReadAsStringAsync();
+                var personagem = JsonConvert.DeserializeObject<Personagem>(content);
+                return View(personagem.Data.Values.Where(c => c.Id.Equals(id)));
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
+
+        public async Task<IActionResult> getImage(string nome)
+        {
+            var endpoint = string.Format("https://ddragon.leagueoflegends.com/cdn/12.4.1/img/champion/{0}", nome);
+            var response = await _httpClient.GetAsync(endpoint);
+            return View(response);
         }
     }
 }
