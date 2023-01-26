@@ -5,6 +5,10 @@
     ViewData["Title"] = "Index";
 }
 
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
 <h1>Champions</h1>
 
 <table class="table">
@@ -26,7 +30,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                <td>
+                <td id="title" class="first">
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
@@ -39,3 +43,6 @@
 <div class="page-item">
 @Html.PagedListPager(Model, page => Url.Action("Index", new{ page}))
 </div>
+
+
+<script src="~/js/site.js"></script>

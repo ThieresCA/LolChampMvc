@@ -67,3 +67,11 @@ ul.pagination li span {
     color: white !important;
     border-radius: 5px;
 }
+
+.info{
+    margin-top: 25px;
+}
+
+.first::first-letter {
+    text-transform: uppercase;
+}

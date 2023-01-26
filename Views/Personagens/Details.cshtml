@@ -1,11 +1,14 @@
 ﻿@using System.Security.Policy
 @model IEnumerable<LolChampMvc.Models.Datum>
 
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
 
 
 @foreach (var item in Model)
 {
-<h1>@Html.DisplayFor(itemModel => item.Name)</h1>
+    <h1>@Html.DisplayFor(itemModel => item.Name)</h1>
 
     <div class="d-flex flex-wrap">
         <div class="img-m">
@@ -21,7 +24,7 @@
             <div class="bold-m">
                 @Html.DisplayNameFor(itemModel => item.Tags)
             </div>
-            <p class="bold-m">
+            <p class="bold-m info">
                 @Html.DisplayNameFor(itemModel => item.Info)
             </p>
         </div>
@@ -29,11 +32,16 @@
             <div class="text-m">
                 @Html.DisplayFor(modelItem => item.Name)
             </div>
-            <div class="text-m">
+            <div id="title" class="text-m first">
                 @Html.DisplayFor(modelItem => item.Title)
             </div>
             <div class="text-m">
-                @Html.DisplayFor(modelItem => item.Tags)
+                @foreach (var x in item.Tags)
+                {
+                    <ul>
+                    <li>@x</li>
+                    </ul>
+                }
             </div>
             <div class="">
                 @Html.DisplayFor(modelItem => item.Info)
@@ -41,3 +49,5 @@
         </div>
     </div>
 }
+
+<script src="~/js/site.js"></script>

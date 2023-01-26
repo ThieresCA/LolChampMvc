@@ -38,7 +38,7 @@ namespace LolChampMvc.Controllers
             }
             catch (Exception ex)
             {
-                string msg = ex.Message;
+                _ = ex.Message;
                 throw ex;
             }
 
@@ -57,7 +57,7 @@ namespace LolChampMvc.Controllers
             }
             catch (Exception ex)
             {
-                return View();
+                return View(ex);
             }
         }
 
