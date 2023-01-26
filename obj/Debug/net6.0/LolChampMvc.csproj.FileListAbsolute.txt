@@ -244,7 +244,7 @@ C:\Users\CODE-DEV-11.CODEN-APP\source\repos\LolChampMvc\LolChampMvc\obj\Debug\ne
 C:\Users\CODE-DEV-11.CODEN-APP\source\repos\LolChampMvc\LolChampMvc\obj\Debug\net6.0\scopedcss\projectbundle\LolChampMvc.bundle.scp.css
 C:\Users\CODE-DEV-11.CODEN-APP\source\repos\LolChampMvc\LolChampMvc\obj\Debug\net6.0\LolChampMvc.csproj.CopyComplete
 C:\Users\CODE-DEV-11.CODEN-APP\source\repos\LolChampMvc\LolChampMvc\obj\Debug\net6.0\LolChampMvc.dll
+C:\Users\CODE-DEV-11.CODEN-APP\source\repos\LolChampMvc\LolChampMvc\obj\Debug\net6.0\refint\LolChampMvc.dll
 C:\Users\CODE-DEV-11.CODEN-APP\source\repos\LolChampMvc\LolChampMvc\obj\Debug\net6.0\LolChampMvc.pdb
 C:\Users\CODE-DEV-11.CODEN-APP\source\repos\LolChampMvc\LolChampMvc\obj\Debug\net6.0\LolChampMvc.genruntimeconfig.cache
 C:\Users\CODE-DEV-11.CODEN-APP\source\repos\LolChampMvc\LolChampMvc\obj\Debug\net6.0\ref\LolChampMvc.dll
-C:\Users\CODE-DEV-11.CODEN-APP\source\repos\LolChampMvc\LolChampMvc\bin\Debug\net6.0\ref\LolChampMvc.dll

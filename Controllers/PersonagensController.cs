@@ -15,7 +15,7 @@ namespace LolChampMvc.Controllers
             _httpClient.BaseAddress = new Uri(Endpoint);
         }
 
-        public async Task<IActionResult> Index(int? page)
+        public async Task<IActionResult> Index(int? page, string id)
         {
             var itensByPage = 10;
             var currentPage = page ?? 1;
@@ -26,14 +26,17 @@ namespace LolChampMvc.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    string content = await response.Content.ReadAsStringAsync();
-                    var personagem = JsonConvert.DeserializeObject<Personagem>(content);
-                    return View(await personagem.Data.Values.ToPagedListAsync(currentPage, itensByPage));
+
+                        string content = await response.Content.ReadAsStringAsync();
+                        var personagem = JsonConvert.DeserializeObject<Personagem>(content);
+                        return View(await personagem.Data.Values.ToPagedListAsync(currentPage, itensByPage));
+ 
                 }
                 else
                 {
                     ModelState.AddModelError(null, "Erro ao processar os dados");
                 }
+
 
             }
             catch (Exception ex)
@@ -48,12 +51,14 @@ namespace LolChampMvc.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
+            var lowerId = id.ToLower();
+            var upperId = char.ToUpper(lowerId[0]) + lowerId.Substring(1);
             var response = await _httpClient.GetAsync(Endpoint);
             try
             {
                 string content = await response.Content.ReadAsStringAsync();
                 var personagem = JsonConvert.DeserializeObject<Personagem>(content);
-                return View(personagem.Data.Values.Where(c => c.Id.Equals(id)));
+                return View(personagem.Data.Values.Where(c => c.Id.Equals(upperId)));
             }
             catch (Exception ex)
             {
