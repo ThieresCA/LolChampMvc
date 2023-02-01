@@ -11,11 +11,13 @@
 
 <h1>Champions</h1>
 <form id="FormId" asp-controller="Personagens" asp-action="Details" method="get">
-    <p>
-        Champion: <input type="text" id="Teste" name="id"/>
-        <input type="submit" value="Search" />
-    </p>
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Champion" aria-describedby="basic-addon2" id="Teste" name="id">
+  <button type="submit" class="input-group-addon btn btn-primary n-bord" id="basic-addon2">Search</button>
+</div>
 </form>
+
+
 
     <table class="table">
         <thead>

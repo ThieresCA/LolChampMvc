@@ -59,14 +59,14 @@ ul.pagination li a {
     border-radius: 5px;
 }
 
-ul.pagination li span {
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    background-color: #4CAF50 !important;
-    color: white !important;
-    border-radius: 5px;
-}
+    ul.pagination li span {
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        background-color: #0b5ed7 !important;
+        color: white !important;
+        border-radius: 5px;
+    }
 
 .info{
     margin-top: 25px;
@@ -74,4 +74,12 @@ ul.pagination li span {
 
 .first::first-letter {
     text-transform: uppercase;
+}
+
+.n-bord{
+    border: none;
+}
+
+#FormId{
+    margin-bottom: 20px;
 }

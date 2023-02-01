@@ -15,7 +15,7 @@ namespace LolChampMvc.Controllers
             _httpClient.BaseAddress = new Uri(Endpoint);
         }
 
-        public async Task<IActionResult> Index(int? page, string id)
+        public async Task<IActionResult> Index(int? page)
         {
             var itensByPage = 10;
             var currentPage = page ?? 1;
@@ -51,6 +51,7 @@ namespace LolChampMvc.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
+            List<Datum> personagens = new List<Datum>();
             var lowerId = id.ToLower();
             var upperId = char.ToUpper(lowerId[0]) + lowerId.Substring(1);
             var response = await _httpClient.GetAsync(Endpoint);
@@ -58,7 +59,9 @@ namespace LolChampMvc.Controllers
             {
                 string content = await response.Content.ReadAsStringAsync();
                 var personagem = JsonConvert.DeserializeObject<Personagem>(content);
-                return View(personagem.Data.Values.Where(c => c.Id.Equals(upperId)));
+                var res = personagem.Data.Values.Where(c => c.Id.Contains(upperId)).FirstOrDefault();
+                personagens.Add(res);
+                return View(personagens);
             }
             catch (Exception ex)
             {
