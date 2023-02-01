@@ -68,12 +68,5 @@ namespace LolChampMvc.Controllers
                 return View(ex);
             }
         }
-
-        public async Task<IActionResult> getImage(string nome)
-        {
-            var endpoint = string.Format("https://ddragon.leagueoflegends.com/cdn/12.4.1/img/champion/{0}", nome);
-            var response = await _httpClient.GetAsync(endpoint);
-            return View(response);
-        }
     }
 }
